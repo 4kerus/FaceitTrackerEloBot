@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaceitWebhookController;
 use App\Http\Controllers\Telegram\WebhookController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,5 @@ Route::prefix('telegram')
         Route::get('webhook', [WebhookController::class, 'set'])->name('webhook-set');
         Route::post('webhook', [WebhookController::class, 'handle'])->name('webhook-handle');
     });
+
+Route::post('/faceit', [FaceitWebhookController::class, 'handle'])->name('faceit-webhook');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Telegram\Commands\GetEloCommand;
 use App\Telegram\Commands\StartCommand;
 use App\Telegram\Queries\InlineButtonsQuery;
 use App\Telegram\Queries\RandomNumberQuery;
@@ -39,7 +40,8 @@ return [
             'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR-BOT-TOKEN'),
             'webhook_url' => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
             'commands' => [
-                StartCommand::class
+                StartCommand::class,
+                GetEloCommand::class,
             ],
             'queries' => [
                 TestBtnQuery::class,

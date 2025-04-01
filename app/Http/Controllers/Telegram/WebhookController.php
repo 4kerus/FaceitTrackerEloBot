@@ -32,6 +32,18 @@ class WebhookController extends Controller
     public function handle(Request $request): JsonResponse
     {
         try {
+//            Log::debug($request->all());
+
+//            Telegram::on('message.text',function (UpdateEvent $event) {
+//
+//                $event->telegram->sendMessage([
+//                    'chat_id' => 401336836,
+//                    'text' => " " . $event->update,
+//                    'text' => 'Incoming message: ' . $event->update->message->text,
+//                ]);
+//            });
+
+
             // Processing buttons
             Telegram::on('callback_query.text', function (UpdateEvent $event) {
                 $action = AbstractQuery::match($event->update->callbackQuery->data);
